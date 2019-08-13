@@ -30,7 +30,7 @@ export const todoReducer = (state, action) => {
           return !todo.completed
         })
       }
-      defaut:
+    default:
       return state;
   }
 

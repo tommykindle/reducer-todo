@@ -16,7 +16,7 @@ const Todo = () => {
     <div>
       <h1>Todo List</h1>
       <ul>
-        <li>{state.item}{' '}</li>
+        {state.todos.map(todo => <li onClick={() => dispatch({ type: 'TOGGLE_COMPLETED', payload: todo.id })} className={todo.completed ? 'completed' : ''}>{todo.item}{' '}</li>)}
       </ul>
       <input
         className="todo-input"
@@ -32,6 +32,13 @@ const Todo = () => {
       >
         Add Todo
 </button>
+      <button
+        onClick={() =>
+          dispatch({ type: 'CLEAR_TODOS' })
+        }
+      >
+        Clear Todo's
+ </button>
     </div>
   );
 
